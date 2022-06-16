@@ -48,6 +48,8 @@ import More from '../Pages/Navbar Pages/More';
 import Ideas from '../Pages/Navbar Pages/Ideas';
 import SalesAndDeals from '../Pages/Navbar Pages/SalesAndDeals';
 import CartCounter from '../Pages/CartPage/CartCounter';
+import WishList from '../Pages/CartPage/Wishlist';
+import WishlistCounter from '../Pages/CartPage/WishlistCounter';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -336,7 +338,7 @@ const unHideSalesBarBox = () => {
               </Button>
               <p> Account </p>
             </Box>
-            <Box>
+            {/* <Box>
               <Button
                 as={'a'}
                 fontSize={'25px'}
@@ -346,7 +348,28 @@ const unHideSalesBarBox = () => {
                 <BiHeart />
               </Button>
               <p> List </p>
+            </Box> */}
+
+<Link to= "/wishlist">
+            <Box position={"relative"} p = "0 0.5 0 0">
+            <WishlistCounter/>
+           
+
+              <Button
+                as={'a'}
+                fontSize={'25px'}
+                fontWeight={400}
+                variant={'link'}
+              >
+                <BiHeart />
+              
+              </Button>
+              <p> List </p>
             </Box>
+            </Link>
+
+
+
             <Link to= "/cart">
             <Box position={"relative"} p = "0 0.5 0 0">
             <CartCounter/>

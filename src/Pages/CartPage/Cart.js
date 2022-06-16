@@ -14,7 +14,8 @@ import {Box, Badge,
     ListItem,
     ListIcon,
 } from "@chakra-ui/react"
-import { CheckIcon } from '@chakra-ui/icons';
+import { CheckIcon, DeleteIcon} from '@chakra-ui/icons';
+import { delteProductCart } from '../../Redux/Cart/action';
 import {Link} from "react-router-dom"
 let totalPrice = 0 ;
 let total = 0;
@@ -36,7 +37,7 @@ export default function Cart() {
 <Box width={"70%"}  >
     {
         cart.map((elem) => (
-            <CardsOfDetailsOfCart name = {elem.productName} image = {elem.image} price = {elem.price} category = {elem.category}/>
+            <CardsOfDetailsOfCart name = {elem.productName} id={elem.id} image = {elem.image} price = {elem.price} category = {elem.category}/>
         ))
     }
     {/* //for keeping the roducts */}
@@ -51,10 +52,16 @@ export default function Cart() {
   )
 }
 
- function CardsOfDetailsOfCart({name, image, price, category}) {
+ function CardsOfDetailsOfCart({name, image, price, category, id}) {
     const [count, setCount] = useState(1)
     totalPrice += count * price
    total = totalPrice.toFixed(2);
+   const dispatch = useDispatch();
+
+   const removeCartItemHandler = (id) => {
+   
+   dispatch(delteProductCart(id))
+   }
 
     const incrementHandle = () => {
         setCount(count + 1)
@@ -147,7 +154,7 @@ export default function Cart() {
                 fontSize={'sm'}
                 // rounded={'full'}
                 height = "40px"
-                bg={'blue.400'}
+                bg={'red.400'}
                 color={'white'}
                 boxShadow={
                   '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
@@ -157,8 +164,10 @@ export default function Cart() {
                 }}
                 _focus={{
                   bg: 'blue.500',
-                }}>
-                Remove
+                }}
+                onClick={() => {removeCartItemHandler(id)}}
+                >
+                Remove <DeleteIcon margin={"6px"}/>
               </Button>
           </Stack>
         </Stack>

@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchData } from '../../Redux/HomeGoodProducts/action';
 import { BiUser, BiHeart } from "react-icons/bi";
 import {Link} from "react-router-dom"
+import { addProductWishlist } from '../../Redux/Cart/action';
+import { FcLike } from "react-icons/fc";
 import {  Stack, Heading, Box,
   Center,
   useColorModeValue,
@@ -18,10 +20,13 @@ import { Rating } from './HomeGoodProductItem';
 
 
 export default function HomeGoodProducts() {
+
   const [searchParams] = useSearchParams();
   const products = useSelector(store => store.homeGoodProducts.products);
+
   const dispatch = useDispatch()
   console.log(products);
+
   useEffect(() =>{
     if(products?.length === 0){
       let params = {
@@ -43,9 +48,11 @@ export default function HomeGoodProducts() {
         <Flex flexWrap="wrap" justifyContent = "space-around">
           {
             products.map((product => (
-              <Link to ={`/homeGoodPoducts/${product.id}`}>
-                  <ProductSimple key= {product.id} image = {product.image} title  = {product.productName} price ={product.price} rating ={product.rating}/>
-              </Link>
+          
+<ProductSimple key= {product.id} image = {product.image} title  = {product.productName} price ={product.price} rating ={product.rating} elem ={product} id={product.id} />
+          
+                
+          
           
             )))
           }
@@ -57,7 +64,23 @@ export default function HomeGoodProducts() {
    </Box>
   )
 }
-function ProductSimple({image, price, title, rating}) {
+function ProductSimple({image, price, title, rating, elem, id}) {
+  const dispatch = useDispatch();
+let heart = false;
+  const wishlist = useSelector(store => store.cart.wishlist);
+  for( let i = 0; i < wishlist.length; i++){
+    if(wishlist[i].id == id){
+   heart = true;
+      break;
+    }else {
+      heart = false;
+    }
+  }
+  
+
+  const addToWishlist = (elem) =>{
+dispatch(addProductWishlist(elem))
+  }
   return (
     <Center py={12}>
       <Box
@@ -92,6 +115,7 @@ function ProductSimple({image, price, title, rating}) {
               filter: 'blur(20px)',
             },
           }}>
+              <Link to ={`/homeGoodPoducts/${id}`}>
           <Image
             rounded={'lg'}
             height={230}
@@ -99,6 +123,7 @@ function ProductSimple({image, price, title, rating}) {
             objectFit={'cover'}
             src={image}
           />
+          </Link>
         </Box>
         <Stack pt={10} >
           <Text color={'white'} p = "2px" fontWeight="500" bg="red" border={"2px solid red"} fontSize={'lg'} textTransform={'uppercase'}>
@@ -133,8 +158,8 @@ function ProductSimple({image, price, title, rating}) {
             
           </Stack>
          
-          <Button colorScheme='red' variant='outline'>
-    Add To WishList    <BiHeart  fontSize={"23px"} />
+          <Button onClick={ () => addToWishlist(elem)} colorScheme='red' variant='outline'>
+    Add To WishList    {heart == false ? <BiHeart marginLeft="20px" fontSize={"23px"} /> : <FcLike marginLeft="20px" fontSize={"23px"}/>} 
   </Button>
 
         </Stack>

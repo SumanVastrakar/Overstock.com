@@ -711,20 +711,30 @@
       "category": "rug"
     },
     {
-      "id": 6,
-      "productName": "Painted Flowers Line Drawing Framed Giclee Texturized Art - Multi-Color",
-      "price": 2744.1,
-      "rating": 3,
-      "image": "https://ak1.ostkcdn.com/images/products/16304883/Painted-Flowers-Line-Drawing-Framed-Giclee-Texturized-Art-2ad21ca5-91a7-48d6-88b7-1e5b4d0595b4_600.jpg?imwidth=480&impolicy=medium",
-      "category": "painting"
+      "id": 12,
+      "productName": "Black Metal Field of Trees Wall Decor",
+      "price": 10761.71,
+      "rating": 5,
+      "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/1696c79c53891be9249991c09022bd89bc20ae6c/Black-Metal-Field-of-Trees-Wall-Decor.jpg?imwidth=480&impolicy=medium",
+      "category": "plant"
     },
     {
-      "id": 17,
-      "productName": "Freestanding Wine Rack- 100 Bottle Capacity, Black",
-      "price": 8652.67,
-      "rating": 2.1,
-      "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/7562858aad57b5ca048783357039ef54ca195553/Freestanding-Wine-Rack--100-Bottle-Capacity%2C-Black.jpg?imwidth=480&impolicy=medium",
-      "category": "furniture"
+      "id": 1,
+      "productName": "Round MgO Indoor / Outdoor Planter",
+      "price": 3213.81,
+      "rating": 4.8,
+      "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/67a7d03eda88ef4a6309551aa512958d8a85e577/MgO-Round-Indoor-Outdoor-Planter.jpg?imwidth=480&impolicy=medium",
+      "category": "plant"
+    }
+  ],
+  "wishlist": [
+    {
+      "id": 3,
+      "productName": "SAFAVIEH Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
+      "price": 2203.85,
+      "rating": 4.2,
+      "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/57e55b6b50af4de47b5b254913333668cb30dec4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Stripe-Area-Rug.jpg?imwidth=480&impolicy=medium",
+      "category": "rug"
     }
   ]
 }
