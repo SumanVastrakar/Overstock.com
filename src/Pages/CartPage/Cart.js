@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCart } from '../../Redux/Cart/action';
+import { emptyCart } from '../../Redux/Cart/action';
 import {Box, Badge,
     Button,
     Center,
@@ -180,6 +181,11 @@ export default function Cart() {
 
    function Pricing() {
     const cart = useSelector(store => store.cart.cart);
+    const dispatch = useDispatch();
+    const emptyCartHandler = (cart) => {
+        console.log("empty cart",cart)
+dispatch(emptyCart(cart))
+    }
     return (
       <Center py={6}>
         <Box
@@ -239,7 +245,9 @@ export default function Cart() {
               }}
               _focus={{
                 bg: 'green.500',
-              }}>
+              }}
+              onClick={() => emptyCartHandler(cart)}
+              >
               Checkout Now
             </Button>
             </Link>

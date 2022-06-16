@@ -701,40 +701,6 @@
       "material": "Omega"
     }
   ],
-  "cart": [
-    {
-      "id": 3,
-      "productName": "SAFAVIEH Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
-      "price": 2203.85,
-      "rating": 4.2,
-      "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/57e55b6b50af4de47b5b254913333668cb30dec4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Stripe-Area-Rug.jpg?imwidth=480&impolicy=medium",
-      "category": "rug"
-    },
-    {
-      "id": 12,
-      "productName": "Black Metal Field of Trees Wall Decor",
-      "price": 10761.71,
-      "rating": 5,
-      "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/1696c79c53891be9249991c09022bd89bc20ae6c/Black-Metal-Field-of-Trees-Wall-Decor.jpg?imwidth=480&impolicy=medium",
-      "category": "plant"
-    },
-    {
-      "id": 1,
-      "productName": "Round MgO Indoor / Outdoor Planter",
-      "price": 3213.81,
-      "rating": 4.8,
-      "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/67a7d03eda88ef4a6309551aa512958d8a85e577/MgO-Round-Indoor-Outdoor-Planter.jpg?imwidth=480&impolicy=medium",
-      "category": "plant"
-    }
-  ],
-  "wishlist": [
-    {
-      "id": 3,
-      "productName": "SAFAVIEH Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
-      "price": 2203.85,
-      "rating": 4.2,
-      "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/57e55b6b50af4de47b5b254913333668cb30dec4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Stripe-Area-Rug.jpg?imwidth=480&impolicy=medium",
-      "category": "rug"
-    }
-  ]
+  "cart": [],
+  "wishlist": []
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCart, fetchWishlist } from '../../Redux/Cart/action';
+import {  DeleteIcon} from '@chakra-ui/icons';
 import {
     Box, Badge,
     Button,
@@ -65,6 +66,9 @@ function CardsOfDetailsOfCart({ name, image, price, category, elem, id }) {
         dispatch(delteProductWishlist(id))
 
     }
+    const removeWishListItemHandler = (id) => {
+        dispatch(delteProductWishlist(id))
+    }
 
     return (
         <Center py={8}>
@@ -120,6 +124,28 @@ function CardsOfDetailsOfCart({ name, image, price, category, elem, id }) {
                         >
                         Add To Cart        <BsCart margin={"10px"} fontSize="1.5rem" />
                     </Button>
+
+                    
+            <Button
+                // flex={1}
+                fontSize={'sm'}
+                // rounded={'full'}
+                height = "40px"
+                bg={'red.400'}
+                color={'white'}
+                boxShadow={
+                  '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                }
+                _hover={{
+                  bg: 'blue.500',
+                }}
+                _focus={{
+                  bg: 'blue.500',
+                }}
+                onClick={() => {removeWishListItemHandler(id)}}
+                >
+                Remove from Wishlist <DeleteIcon margin={"6px"}/>
+              </Button>
                 </Stack>
             </Stack>
         </Center>

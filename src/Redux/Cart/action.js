@@ -23,6 +23,10 @@ export const REMOVE_WISHLIST_REQUEST = "REMOVE_WISHLIST_REQUEST";
 export const REMOVE_WISHLIST_SUCCESS = "REMOVE_WISHLIST_SUCCESS";
 export const REMOVE_WISHLIST_FAILURE = "REMOVE_WISHLIST_FAILURE";
 
+export const EMPTY_CART_REQUEST = "EMPTY_CART_REQUEST";
+export const EMPTY_CART_SUCCESS = "EMPTY_CART_SUCCESS";
+export const EMPTY_CART_FAILURE = "EMPTY_CART_FAILURE";
+
 export const addProductCartRequest = () => {
     return {
         type: ADD_PRODUCT_CART_REQUEST,
@@ -213,4 +217,44 @@ export const delteProductWishlist = (id) => (dispatch) => {
         .then(d => dispatch(delteProductWishlistSucess()))
         .then(() => dispatch(fetchWishlist()))
         .catch(error => dispatch(delteProductWishlistFailure(error.data)))
+}
+
+//empty the cart once the order is placed 
+
+//to make te cart as empty once the order is placed
+
+
+
+export const emptyCartRequest = (payload) => {
+    return {
+        type: EMPTY_CART_REQUEST,
+        payload
+    }
+}
+
+export const emptyCartSuccess = (payload) => {
+    return {
+        type: EMPTY_CART_SUCCESS,
+        payload
+
+    }
+}
+
+export const emptyCartFailure = (payload) => {
+    return {
+        type: EMPTY_CART_FAILURE,
+        payload
+
+    }
+}
+
+export const emptyCart = (payload) => (dispatch) => {
+    dispatch(emptyCartRequest())
+    const deleteOrders = [];
+    for (let obj of payload) {
+        let temp = dispatch(delteProductCart(obj.id))
+        deleteOrders.push(temp);
+    }
+    Promise.all(deleteOrders).then((r) => dispatch(emptyCartSuccess()))
+        .catch((e) => dispatch(emptyCartFailure()))
 }
