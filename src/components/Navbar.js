@@ -7,7 +7,7 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
+
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -25,6 +25,7 @@ import { BiUser, BiHeart } from "react-icons/bi";
 import { BsCart } from "react-icons/bs";
 
 import { BsSearch } from "react-icons/bs";
+import {Link} from "react-router-dom"
 import {
   HamburgerIcon,
   CloseIcon,
@@ -46,6 +47,7 @@ import KidsAndBaby from '../Pages/Navbar Pages/KidsAndBaby';
 import More from '../Pages/Navbar Pages/More';
 import Ideas from '../Pages/Navbar Pages/Ideas';
 import SalesAndDeals from '../Pages/Navbar Pages/SalesAndDeals';
+import CartCounter from '../Pages/CartPage/CartCounter';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -340,23 +342,29 @@ const unHideSalesBarBox = () => {
                 fontSize={'25px'}
                 fontWeight={400}
                 variant={'link'}
-                href={'#'}>
+               >
                 <BiHeart />
               </Button>
               <p> List </p>
             </Box>
+            <Link to= "/cart">
+            <Box position={"relative"} p = "0 0.5 0 0">
+            <CartCounter/>
+           
 
-            <Box>
               <Button
                 as={'a'}
                 fontSize={'25px'}
                 fontWeight={400}
                 variant={'link'}
-                href={'#'}>
+              >
                 <BsCart />
+              
               </Button>
               <p> Cart </p>
             </Box>
+            </Link>
+           
 
           </Stack>
         </Flex>

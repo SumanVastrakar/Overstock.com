@@ -16,7 +16,7 @@ export default function Home() {
     <DecorToSeize/>
     <GotYourStyle/>
     <TrendingSearches/>
-    <Footer/>
+
     </div>
   )
 }

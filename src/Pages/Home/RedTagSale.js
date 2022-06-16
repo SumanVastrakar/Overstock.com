@@ -1,10 +1,14 @@
 import React from 'react'
 import "./HomePage.css"
+import {Link} from "react-router-dom";
 
 export default function RedTagSale() {
   return (
     <div>
-      <img style={{margin : "auto", width : "90%", cursor:"pointer"}} src="https://i.imgur.com/imQdSdK.png" alt="" />
+        <Link to="/homeGoodPoducts">
+        <img style={{margin : "auto", width : "90%", cursor:"pointer"}} src="https://i.imgur.com/imQdSdK.png" alt="" />
+        </Link>
+     
       <p className='HeadingOfHomePage'>Limited-Time Deals</p>
       
       <div className='limitedTimeDeals'>

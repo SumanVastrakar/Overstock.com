@@ -23,7 +23,7 @@ export const Footer = () => {
         <div className="footer__top_middle">
           <h3>MY OVERSTOCK</h3>
           <ul>
-            <li>BB Access</li>
+            <li>Overstock Access</li>
             <li>MY Account</li>
             <li>My Orders</li>
             <li>Store Locator</li>
