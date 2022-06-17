@@ -72,7 +72,7 @@ function ProductSimple({image, price, title, rating, elem, id}) {
 let heart = false;
   const wishlist = useSelector(store => store.cart.wishlist);
   for( let i = 0; i < wishlist.length; i++){
-    if(wishlist[i].id == id){
+    if(wishlist[i].product.id == id){
    heart = true;
       break;
     }else {
@@ -81,8 +81,8 @@ let heart = false;
   }
   
 
-  const addToWishlist = (elem) =>{
-dispatch(addProductWishlist(elem))
+  const addToWishlist = (elem, token) =>{
+dispatch(addProductWishlist(elem, token))
   }
   return (
     <Center py={12}>

@@ -704,6 +704,32 @@
   "cart": [
     {
       "product": {
+        "id": 3,
+        "productName": "SAFAVIEH Adirondack Vera Modern Ombre Distressed Stripe Area Rug",
+        "price": 2203.85,
+        "rating": 4.2,
+        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/57e55b6b50af4de47b5b254913333668cb30dec4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Stripe-Area-Rug.jpg?imwidth=480&impolicy=medium",
+        "category": "rug"
+      },
+      "token": "84f7d7295423f20ac448b851ffbcf5ca",
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 1,
+        "productName": "Round MgO Indoor / Outdoor Planter",
+        "price": 3213.81,
+        "rating": 4.8,
+        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/67a7d03eda88ef4a6309551aa512958d8a85e577/MgO-Round-Indoor-Outdoor-Planter.jpg?imwidth=480&impolicy=medium",
+        "category": "plant"
+      },
+      "token": "84f7d7295423f20ac448b851ffbcf5ca",
+      "id": 2
+    }
+  ],
+  "wishlist": [
+    {
+      "product": {
         "id": 1,
         "productName": "Round MgO Indoor / Outdoor Planter",
         "price": 3213.81,
@@ -714,6 +740,5 @@
       "token": "84f7d7295423f20ac448b851ffbcf5ca",
       "id": 1
     }
-  ],
-  "wishlist": []
+  ]
 }

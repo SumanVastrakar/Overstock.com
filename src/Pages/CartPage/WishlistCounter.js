@@ -5,7 +5,17 @@ import { fetchCart, fetchWishlist } from '../../Redux/Cart/action';
 
 export default function WishlistCounter() {
     const dispatch = useDispatch();
-    const wishlist = useSelector(store => store.cart.wishlist);
+    const newWishlist = useSelector(store => store.cart.wishlist);
+    const user = useSelector(store => store.auth.user)
+
+
+    let wishlist = [];
+    for( let i = 0; i < newWishlist.length; i++){
+ 
+      if(newWishlist[i].token === user[1]){
+        wishlist.push(newWishlist[i])
+      }
+    }
 
 
     useEffect(() => {

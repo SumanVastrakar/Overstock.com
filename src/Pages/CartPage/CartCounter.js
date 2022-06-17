@@ -4,9 +4,23 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchCart } from '../../Redux/Cart/action';
 
 export default function CartCounter() {
-    const cart = useSelector((store) => store.cart.cart);
-    console.log(cart)
+
     const dispatch = useDispatch();
+    
+  const user = useSelector(store => store.auth.user)
+
+    const newCart = useSelector(store => store.cart.cart);
+    console.log("newCart",newCart);
+
+
+    let cart = [];
+    for( let i = 0; i < newCart.length; i++){
+ 
+      if(newCart[i].token === user[1]){
+        cart.push(newCart[i])
+      }
+    }
+
 
     useEffect(() => {
         if(cart?.length === 0){

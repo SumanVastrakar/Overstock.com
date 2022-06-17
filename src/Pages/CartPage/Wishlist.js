@@ -24,13 +24,20 @@ import { delteProductWishlist } from '../../Redux/Cart/action';
 
 
 export default function WishList() {
-    const user = useSelector(store => store.auth.user)
-    // console.log("user",user)
-    // console.log("hello user",user[0], "token", user[1]);
-
+   
     const dispatch = useDispatch();
-    const wishlist = useSelector(store => store.cart.wishlist);
-    console.log("wishlist",wishlist)
+    const newWishlist = useSelector(store => store.cart.wishlist);
+    const user = useSelector(store => store.auth.user)
+
+
+    let wishlist = [];
+    for( let i = 0; i < newWishlist.length; i++){
+ 
+      if(newWishlist[i].token === user[1]){
+        wishlist.push(newWishlist[i])
+      }
+    }
+    console.log(wishlist)
    
   
     useEffect(() => {
@@ -49,7 +56,7 @@ export default function WishList() {
                 <Box width={"100%"}  >
                     {
                         wishlist.map((elem) => (
-                            <CardsOfDetailsOfCart name={elem.productName} image={elem.image} price={elem.price} category={elem.category} elem = {elem} id={elem.id}/>
+                            <CardsOfDetailsOfCart name={elem.product.productName} image={elem.product.image} price={elem.product.price} category={elem.product.category} elem = {elem} />
                         ))
                     }
                     {/* //for keeping the products */}
@@ -61,7 +68,7 @@ export default function WishList() {
     )
 }
 
-function CardsOfDetailsOfCart({ name, image, price, category, elem, id }) {
+function CardsOfDetailsOfCart({ name, image, price, category, elem }) {
     const dispatch = useDispatch();
     const user = useSelector(store => store.auth.user)
     
@@ -124,7 +131,7 @@ function CardsOfDetailsOfCart({ name, image, price, category, elem, id }) {
                         _focus={{
                             bg: 'blue.500',
                         }}
-                        onClick = {()=>addToCartHandler(elem, id)}
+                        onClick = {()=>addToCartHandler(elem.product, elem.id)}
                         >
                         Add To Cart        <BsCart margin={"10px"} fontSize="1.5rem" />
                     </Button>
@@ -146,7 +153,7 @@ function CardsOfDetailsOfCart({ name, image, price, category, elem, id }) {
                 _focus={{
                   bg: 'blue.500',
                 }}
-                onClick={() => {removeWishListItemHandler(id)}}
+                onClick={() => {removeWishListItemHandler(elem.id)}}
                 >
                 Remove from Wishlist <DeleteIcon margin={"6px"}/>
               </Button>
