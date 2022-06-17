@@ -701,6 +701,19 @@
       "material": "Omega"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "product": {
+        "id": 1,
+        "productName": "Round MgO Indoor / Outdoor Planter",
+        "price": 3213.81,
+        "rating": 4.8,
+        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/67a7d03eda88ef4a6309551aa512958d8a85e577/MgO-Round-Indoor-Outdoor-Planter.jpg?imwidth=480&impolicy=medium",
+        "category": "plant"
+      },
+      "token": "84f7d7295423f20ac448b851ffbcf5ca",
+      "id": 1
+    }
+  ],
   "wishlist": []
 }

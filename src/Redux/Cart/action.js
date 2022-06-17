@@ -50,9 +50,10 @@ export const addProductCartFailure = (data) => {
     }
 }
 
-export const addProductCart = (product) => (dispatch) => {
+export const addProductCart = (product, token) => (dispatch) => {
+
     // console.log("product", product)
-    axios.post("http://localhost:8080/cart", product)
+    axios.post("http://localhost:8080/cart", {product, token :token})
         .then(d => dispatch(addProductCartSuccess(d.data)))
         .catch(error => addProductCartFailure(error.data))
 
@@ -114,9 +115,9 @@ export const addProductWishlistFailure = (data) => {
     }
 }
 
-export const addProductWishlist = (product) => (dispatch) => {
+export const addProductWishlist = (product, token) => (dispatch) => {
     // console.log("product", product)
-    axios.post("http://localhost:8080/wishlist",product)
+    axios.post("http://localhost:8080/wishlist",{product, token : token})
         .then(d => dispatch(addProductWishlistSuccess(d.data)))
         .catch(error => addProductWishlistFailure(error.data))
 

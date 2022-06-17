@@ -24,6 +24,9 @@ import { delteProductWishlist } from '../../Redux/Cart/action';
 
 
 export default function WishList() {
+    const user = useSelector(store => store.auth.user)
+    // console.log("user",user)
+    // console.log("hello user",user[0], "token", user[1]);
 
     const dispatch = useDispatch();
     const wishlist = useSelector(store => store.cart.wishlist);
@@ -60,9 +63,10 @@ export default function WishList() {
 
 function CardsOfDetailsOfCart({ name, image, price, category, elem, id }) {
     const dispatch = useDispatch();
+    const user = useSelector(store => store.auth.user)
     
     const addToCartHandler = (elem, id) => {
-        dispatch(addProductCart(elem))
+        dispatch(addProductCart(elem, user[1]))
         dispatch(delteProductWishlist(id))
 
     }

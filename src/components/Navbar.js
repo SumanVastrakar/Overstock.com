@@ -50,9 +50,12 @@ import SalesAndDeals from '../Pages/Navbar Pages/SalesAndDeals';
 import CartCounter from '../Pages/CartPage/CartCounter';
 import WishList from '../Pages/CartPage/Wishlist';
 import WishlistCounter from '../Pages/CartPage/WishlistCounter';
+import { useSelector } from 'react-redux';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const user = useSelector(store => store.auth.user);
+  const statusOfUser = useSelector(store => store.auth.status)
 
   //writing the logic for hiding and unhiding the furniture boxes
 
@@ -323,7 +326,10 @@ const unHideSalesBarBox = () => {
             justify={'flex-end'}
             direction={'row'}
             spacing={5}>
+           <Link to= '/register'>
             <Box>
+
+          
               <Button
                 as={'a'}
                 fontSize={'25px'}
@@ -336,8 +342,9 @@ const unHideSalesBarBox = () => {
                 <BiUser mb={-2} />
 
               </Button>
-              <p> Account </p>
+              <p> {`${statusOfUser ? user[0] : "Account"}`} </p>
             </Box>
+            </Link>
             {/* <Box>
               <Button
                 as={'a'}

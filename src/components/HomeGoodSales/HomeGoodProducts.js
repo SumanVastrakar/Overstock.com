@@ -24,6 +24,8 @@ export default function HomeGoodProducts() {
   const [searchParams] = useSearchParams();
   const products = useSelector(store => store.homeGoodProducts.products);
 
+
+
   const dispatch = useDispatch()
   console.log(products);
 
@@ -65,6 +67,7 @@ export default function HomeGoodProducts() {
   )
 }
 function ProductSimple({image, price, title, rating, elem, id}) {
+  const user = useSelector(store => store.auth.user)
   const dispatch = useDispatch();
 let heart = false;
   const wishlist = useSelector(store => store.cart.wishlist);
@@ -158,7 +161,7 @@ dispatch(addProductWishlist(elem))
             
           </Stack>
          
-          <Button onClick={ () => addToWishlist(elem)} colorScheme='red' variant='outline'>
+          <Button onClick={ () => addToWishlist(elem, user[1])} colorScheme='red' variant='outline'>
     Add To WishList    {heart == false ? <BiHeart marginLeft="20px" fontSize={"23px"} /> : <FcLike marginLeft="20px" fontSize={"23px"}/>} 
   </Button>
 

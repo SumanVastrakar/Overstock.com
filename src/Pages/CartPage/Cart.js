@@ -21,9 +21,25 @@ import {Link} from "react-router-dom"
 let totalPrice = 0 ;
 let total = 0;
 export default function Cart() {
+
+  const user = useSelector(store => store.auth.user)
+  // console.log("user",user)
+  // console.log("hello user",user[0], "token", user[1]);
   
     const dispatch = useDispatch();
-    const cart = useSelector(store => store.cart.cart);
+    const newCart = useSelector(store => store.cart.cart);
+    console.log("newCart",newCart);
+
+
+    let cart = [];
+    for( let i = 0; i < newCart.length; i++){
+ 
+      if(newCart[i].token === user[1]){
+        cart.push(newCart[i])
+      }
+    }
+
+    console.log("cart page seperate of each user", cart)
    
   
     useEffect(() => {
@@ -38,7 +54,7 @@ export default function Cart() {
 <Box width={"70%"}  >
     {
         cart.map((elem) => (
-            <CardsOfDetailsOfCart name = {elem.productName} id={elem.id} image = {elem.image} price = {elem.price} category = {elem.category}/>
+            <CardsOfDetailsOfCart name = {elem.product.productName} id={elem.product.id} image = {elem.product.image} price = {elem.product.price} category = {elem.product.category}/>
         ))
     }
     {/* //for keeping the roducts */}

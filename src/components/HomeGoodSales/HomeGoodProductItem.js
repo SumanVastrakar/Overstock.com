@@ -28,13 +28,16 @@ import { addProductCart } from '../../Redux/Cart/action';
   
   export default function HomeGoodProductItem() {
 
- 
+    const user = useSelector(store => store.auth.user)
+    console.log("user",user)
+    console.log("hello user",user[0], "token", user[1]);
     const {id} = useParams();
     const dispatch = useDispatch()
     const currentProduct = useSelector(store => store.homeGoodProducts.currentProduct)
 
 const addToCartHandler = () => {
-    currentProduct && dispatch(addProductCart(currentProduct))
+
+    currentProduct && dispatch(addProductCart(currentProduct, user[1]))
 }
 
 
