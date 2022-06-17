@@ -18,7 +18,16 @@ import {
   InputLeftElement,
   InputRightElement,
   Input,
-  extendTheme
+  extendTheme,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+
 
 } from '@chakra-ui/react';
 import { BiUser, BiHeart } from "react-icons/bi";
@@ -27,6 +36,7 @@ import { BsCart } from "react-icons/bs";
 
 import { BsSearch } from "react-icons/bs";
 import {Link} from "react-router-dom"
+import { useDispatch } from 'react-redux/es/exports';
 import {
   HamburgerIcon,
   CloseIcon,
@@ -52,14 +62,19 @@ import CartCounter from '../Pages/CartPage/CartCounter';
 import WishList from '../Pages/CartPage/Wishlist';
 import WishlistCounter from '../Pages/CartPage/WishlistCounter';
 import { useSelector } from 'react-redux';
+import { logoutSuccess } from '../Redux/Auth/action';
+import { store } from '../Redux/store';
 
 var originalArr = [];
 export default function Navbar() {
+  const dispatch = useDispatch();
 
   const [product, setProduct] = useState([]);
   const { isOpen, onToggle } = useDisclosure();
   const user = useSelector(store => store.auth.user);
-  const statusOfUser = useSelector(store => store.auth.status)
+  let statusOfUser = useSelector(store => store.auth.status)
+  console.log(store.getState());
+  
 
   if (!originalArr.length) {
     originalArr = [...product];
@@ -79,7 +94,11 @@ export default function Navbar() {
   if (!originalArr.length) {
     originalArr = [...product];
   }
-
+//logout Handler 
+const logoutHandler = () => {
+  statusOfUser = false
+  dispatch(logoutSuccess())
+}
 
   ///logic for debouncing
     //getting the input value
@@ -384,8 +403,10 @@ onClick={() => {
             flex={{ base: 1, md: 0 }}
             justify={'flex-end'}
             direction={'row'}
-            spacing={5}>
-           <Link to= '/register'>
+            spacing={5}
+            alignItems="center"
+            >
+         
             <Box>
 
           
@@ -398,12 +419,33 @@ onClick={() => {
 
               >
 
-                <BiUser mb={-2} />
+              
+
+                {/* ////////////////////////////////// */}
+
+                <Menu>
+  <MenuButton as={Button}  bg={"white"}>
+  <BiUser fontSize="27px" mb={-2} />
+  </MenuButton>
+  <MenuList>
+  <Link to= '/register'>
+    <MenuItem>Create Account</MenuItem>
+    </Link>
+  <Link to= '/login'>
+    <MenuItem>Login</MenuItem>
+    </Link>
+    <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+
+  </MenuList>
+</Menu>
+
+
+                {/* ////////////////// */}
 
               </Button>
               <p> {`${statusOfUser ? user[0] : "Account"}`} </p>
             </Box>
-            </Link>
+           
           
 
 <Link to= "/wishlist">
