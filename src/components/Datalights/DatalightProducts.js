@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchData } from '../../Redux/HomeGoodProducts/action';
 
+import { fetchData } from '../../Redux/DatalighProduct/action';
 import { BiUser, BiHeart } from "react-icons/bi";
 import {Link} from "react-router-dom"
 import { addProductWishlist } from '../../Redux/Cart/action';
@@ -14,16 +14,17 @@ import {  Stack, Heading, Box,
   IconButton ,
 Button,
   Image, } from '@chakra-ui/react';
-import HomeGoodProductsFilter from './HomeGoodProductsFilter';
+
 import { useSearchParams } from 'react-router-dom';
 import { EmailIcon } from '@chakra-ui/icons';
-import { Rating } from './HomeGoodProductItem';
+import { Rating } from './DatalightItems';
+import DataLightsFilter from './DataLightsFilter';
 
 
-export default function HomeGoodProducts() {
+export default function DatalightProducts() {
 
   const [searchParams] = useSearchParams();
-  const products = useSelector(store => store.homeGoodProducts.products);
+  const products = useSelector(store => store.dataLight.products);
 
 
 
@@ -41,10 +42,10 @@ export default function HomeGoodProducts() {
   },[dispatch, products?.length, searchParams])
   return (
    <Box>
-    <Heading as ="h1" p = "2rem 4rem">Home Goods Sale</Heading>
+    <Heading as ="h1" p = "2rem 4rem">Lightning Sale</Heading>
     <Stack display = {{md : "flex"}} flexDirection = {{md : "row"}}>
       <Box>
-      <HomeGoodProductsFilter/>
+      <DataLightsFilter/>
       </Box>
       <Box>
         {/* <Heading as = "h1"> Home Good Products</Heading> */}

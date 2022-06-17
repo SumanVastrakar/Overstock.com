@@ -72,9 +72,18 @@ function CardsOfDetailsOfCart({ name, image, price, category, elem }) {
     const dispatch = useDispatch();
     const user = useSelector(store => store.auth.user)
     
-    const addToCartHandler = (elem, id) => {
-        dispatch(addProductCart(elem, user[1]))
-        dispatch(delteProductWishlist(id))
+
+    const cart = useSelector(store => store.cart.cart);
+    const addToCartHandler = (elem) => {
+        for( let i = 0; i < cart.length; i++){
+                if(elem.product.id == cart[i].product.id){
+                  alert("Item already exist in the cart")
+                
+                  return;
+                }
+            }
+        dispatch(addProductCart(elem.product, user[1]))
+        dispatch(delteProductWishlist(elem.id))
 
     }
     const removeWishListItemHandler = (id) => {
@@ -131,7 +140,7 @@ function CardsOfDetailsOfCart({ name, image, price, category, elem }) {
                         _focus={{
                             bg: 'blue.500',
                         }}
-                        onClick = {()=>addToCartHandler(elem.product, elem.id)}
+                        onClick = {()=>addToCartHandler(elem)}
                         >
                         Add To Cart        <BsCart margin={"10px"} fontSize="1.5rem" />
                     </Button>

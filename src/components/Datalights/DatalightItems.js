@@ -21,20 +21,19 @@ import { useEffect } from 'react';
   import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
   import {useParams} from "react-router-dom"
-
-  import { getSingleProduct } from '../../Redux/HomeGoodProducts/action';
+import { getSingleProduct } from '../../Redux/DatalighProduct/action';
   import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
 import { addProductCart } from '../../Redux/Cart/action';
   
-  export default function HomeGoodProductItem() {
+  export default function DatalighItems() {
 
     const user = useSelector(store => store.auth.user)
     console.log("user",user)
     console.log("hello user",user[0], "token", user[1]);
     const {id} = useParams();
     const dispatch = useDispatch()
-    const currentProduct = useSelector(store => store.homeGoodProducts.currentProduct)
+    const currentProduct = useSelector(store => store.dataLight.currentProduct)
     const cart = useSelector(store => store.cart.cart);
 
 const addToCartHandler = () => {

@@ -301,7 +301,10 @@ const unHideSalesBarBox = () => {
               fontSize="40px"
             >
               {/* OVERSTOCK */}
+              <Link to="/">
               <img width={"170px"}   border={"2px solid black"} src ="https://searchlogovector.com/wp-content/uploads/2018/09/overstock-logo-vector.png"/>
+              </Link>
+        
              
             </Text>
 
@@ -420,7 +423,10 @@ const unHideSalesBarBox = () => {
           <Box className="NavbarChoiceElement" id="rugs" onMouseOver={unHideRugsBarBox} onMouseLeave={hideRugsBoxBox}>Rugs</Box>
         </Text>
         <Text>
-        <Box className="NavbarChoiceElement" id="decor" onMouseOver={unHideDecorBarBox} onMouseLeave={hideDecorBoxBox}>Decor</Box>
+          <Link to="/jweleryproducts">
+      
+        <Box className="NavbarChoiceElement" id="decor" onMouseOver={unHideDecorBarBox} onMouseLeave={hideDecorBoxBox}>Jwelery</Box>
+        </Link>
         </Text>
         <Text>
         <Box className="NavbarChoiceElement" id="bedding" onMouseOver={unHideBeddingBarBox} onMouseLeave={hideBeddingBoxBox}>Bedding</Box>
@@ -435,7 +441,10 @@ const unHideSalesBarBox = () => {
         <Box className="NavbarChoiceElement" id="outdoor" onMouseOver={unHideOutdoorBarBox} onMouseLeave={hideOutdoorBoxBox}>Oudoor</Box>
         </Text>
         <Text>
+          <Link to ="/datalightsproducts">
+         
         <Box className="NavbarChoiceElement" id="lightning" onMouseOver={unHideLightningBarBox} onMouseLeave={hideLightningBoxBox}>   Lightning</Box>
+        </Link>
         </Text>
 
         <Text>

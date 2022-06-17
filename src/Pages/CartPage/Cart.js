@@ -54,7 +54,7 @@ export default function Cart() {
 <Box width={"70%"}  >
     {
         cart.map((elem) => (
-            <CardsOfDetailsOfCart name = {elem.product.productName} id={elem.product.id} image = {elem.product.image} price = {elem.product.price} category = {elem.product.category}/>
+            <CardsOfDetailsOfCart name = {elem.product.productName} id={elem.product.id} image = {elem.product.image} price = {elem.product.price} category = {elem.product.category} elem = {elem}/>
         ))
     }
     {/* //for keeping the roducts */}
@@ -69,7 +69,7 @@ export default function Cart() {
   )
 }
 
- function CardsOfDetailsOfCart({name, image, price, category, id}) {
+ function CardsOfDetailsOfCart({name, image, price, category, id, elem}) {
     const [count, setCount] = useState(1)
     totalPrice += count * price
    total = totalPrice.toFixed(2);
@@ -182,7 +182,7 @@ export default function Cart() {
                 _focus={{
                   bg: 'blue.500',
                 }}
-                onClick={() => {removeCartItemHandler(id)}}
+                onClick={() => {removeCartItemHandler(elem.id)}}
                 >
                 Remove <DeleteIcon margin={"6px"}/>
               </Button>
