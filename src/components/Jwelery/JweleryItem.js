@@ -35,6 +35,7 @@ import { addProductCart } from '../../Redux/Cart/action';
     const {id} = useParams();
     const dispatch = useDispatch()
     const currentProduct = useSelector(store => store.jwelery.currentProduct)
+    console.log(currentProduct)
     const cart = useSelector(store => store.cart.cart);
 
 const addToCartHandler = () => {
@@ -44,7 +45,7 @@ for( let i = 0; i < cart.length; i++){
     return;
   }
 }
-
+alert("Item Successfully Added to cart")
     currentProduct && dispatch(addProductCart(currentProduct, user[1]))
 }
 

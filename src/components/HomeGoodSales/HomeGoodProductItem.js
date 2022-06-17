@@ -44,7 +44,7 @@ for( let i = 0; i < cart.length; i++){
     return;
   }
 }
-
+alert("Item Successfully Added to cart")
     currentProduct && dispatch(addProductCart(currentProduct, user[1]))
 }
 

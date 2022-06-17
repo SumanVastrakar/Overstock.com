@@ -132,7 +132,7 @@ function ProductSimple({image, price, title, rating, elem, id}) {
                 filter: 'blur(20px)',
               },
             }}>
-                <Link to ={`/datalightsproducts/${id}`}>
+                <Link to ={`/jweleryproducts/${id}`}>
             <Image
               rounded={'lg'}
               height={230}

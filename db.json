@@ -761,47 +761,8 @@
       "material": "Omega"
     }
   ],
-  "cart": [
-    {
-      "product": {
-        "id": 63,
-        "image": "https://ak1.ostkcdn.com/images/products/9625844/Suzy-Levian-Sterling-Silver-5-1-3ct-TGW-Sapphire-and-Diamond-Accent-Eternity-Pave-Ring-0c64a0b4-2a09-4d07-8c70-cf4c7a782f23_600.jpg?imwidth=480&impolicy=medium",
-        "price": 11792,
-        "productName": "Suzy Levian Sterling Silver 5 1/3ct TGW Sapphire and Diamond Accent Eternity Pave Ring",
-        "rating": 3.2,
-        "category": "Rings",
-        "material": "Bands"
-      },
-      "token": "495c1c21e5774f890799223d8ec7a4e6",
-      "id": 1
-    }
-  ],
+  "cart": [],
   "wishlist": [
-    {
-      "product": {
-        "id": 68,
-        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/934abb2abbb623df5484cbcba2f6cfc8fb417468/Miadora-Sterling-Silver-1-4ct-TDW-Diamond-Hoop-Earrings.jpg?imwidth=480&impolicy=medium",
-        "price": 9729,
-        "productName": "Miadora Sterling Silver 1/4ct TDW Diamond Hoop Earrings",
-        "rating": 1,
-        "category": "Earing",
-        "material": "Hoop"
-      },
-      "token": "84f7d7295423f20ac448b851ffbcf5ca",
-      "id": 2
-    },
-    {
-      "product": {
-        "id": 12,
-        "productName": "Black Metal Field of Trees Wall Decor",
-        "price": 10761.71,
-        "rating": 5,
-        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/1696c79c53891be9249991c09022bd89bc20ae6c/Black-Metal-Field-of-Trees-Wall-Decor.jpg?imwidth=480&impolicy=medium",
-        "category": "plant"
-      },
-      "token": "84f7d7295423f20ac448b851ffbcf5ca",
-      "id": 3
-    },
     {
       "product": {
         "id": 46,
@@ -812,47 +773,34 @@
         "category": "Chandeliers",
         "material": "Metal"
       },
-      "token": "84f7d7295423f20ac448b851ffbcf5ca",
-      "id": 4
-    },
-    {
-      "product": {
-        "id": 66,
-        "image": "https://ak1.ostkcdn.com/images/products/8089617/White-Gold-Size-6-White-Gold-Size-7-White-Gold-Size-8-White-Gold-Size-7.5-White-Gold-Size-5.5-White-Gold-Size-5-White-Gold-Size-6.5-10k-Gold-1-4ct-TDW-Black-and-White-Stackable-Diamond-Band-G-H-I1-I2-55fd103b-a919-455d-b4c1-2df922bd70ea_600.jpg?imwidth=480&impolicy=medium",
-        "price": 23315,
-        "productName": "10k Gold 1/4ct TDW Black and White Stackable Diamond Band - 6 - Yellow",
-        "rating": 5,
-        "category": "Rings",
-        "material": "Stackable"
-      },
-      "token": "84f7d7295423f20ac448b851ffbcf5ca",
+      "token": "fcdc7b4207660a1372d0cd5491ad856e",
       "id": 5
     },
     {
       "product": {
-        "id": 27,
-        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/c206a6e24c9d1ab0cac54cd09e78213107cdccfd/Abalone-Glass-Pendant-Light-by-Hampton-Hill.jpg?imwidth=480&impolicy=medium",
-        "price": 7785,
-        "productName": "Abalone Glass Pendant Light by Hampton Hill",
-        "rating": 2.3,
-        "category": "Pendant",
-        "material": "Glass"
+        "id": 58,
+        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/d34a81aea7555725b80ad070dc0f0fe829a4ef79/Braided-1-8ct-TDW-Diamond-Ring-in-Sterling-Silver-by-Miadora.jpg?imwidth=480&impolicy=medium",
+        "price": 8878,
+        "productName": "Braided 1/8ct TDW Diamond Ring in Sterling Silver by Miadora",
+        "rating": 3.1,
+        "category": "Rings",
+        "material": "Vintage"
       },
-      "token": "84f7d7295423f20ac448b851ffbcf5ca",
+      "token": "fcdc7b4207660a1372d0cd5491ad856e",
       "id": 6
     },
     {
       "product": {
-        "id": 60,
-        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/8bec96b7d90f1784f1c238c5068045ac044fa4ea/Auriya-14k-Gold-4-5ctw-Vintage-Inspired-Diamond-Engagement-Ring-Set.jpg?imwidth=480&impolicy=medium",
-        "price": 113573,
-        "productName": "Auriya 14k Gold 4/5ctw Vintage Inspired Diamond Engagement Ring Set",
-        "rating": 4.3,
+        "id": 63,
+        "image": "https://ak1.ostkcdn.com/images/products/9625844/Suzy-Levian-Sterling-Silver-5-1-3ct-TGW-Sapphire-and-Diamond-Accent-Eternity-Pave-Ring-0c64a0b4-2a09-4d07-8c70-cf4c7a782f23_600.jpg?imwidth=480&impolicy=medium",
+        "price": 11792,
+        "productName": "Suzy Levian Sterling Silver 5 1/3ct TGW Sapphire and Diamond Accent Eternity Pave Ring",
+        "rating": 3.2,
         "category": "Rings",
-        "material": "Vintage"
+        "material": "Bands"
       },
-      "token": "495c1c21e5774f890799223d8ec7a4e6",
-      "id": 9
+      "token": "fcdc7b4207660a1372d0cd5491ad856e",
+      "id": 7
     }
   ]
 }

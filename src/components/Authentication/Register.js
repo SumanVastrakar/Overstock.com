@@ -63,6 +63,7 @@ console.log(form)
         }).then(res => res.json()).then(data => {
          console.log("response",data)
          if(data.error == false){
+          alert("User Created Successfully")
            navigate("/login", {replace:true})
          }else {
            alert("User Already Exist")
@@ -83,9 +84,7 @@ console.log(form)
             <Heading fontSize={'4xl'} textAlign={'center'}>
               Sign up
             </Heading>
-            <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our cool features ✌️
-            </Text>
+
           </Stack>
           <Box
             rounded={'lg'}
@@ -103,7 +102,7 @@ console.log(form)
                 <Box>
                   <FormControl id="lastName">
                     <FormLabel>Last Name</FormLabel>
-                    <Input type="text" value ={form.email} name="email" onChange={handleChange} />
+                    <Input type="text" value ={form.email} name="text" onChange={handleChange} />
                   </FormControl>
                 </Box>
               </HStack>

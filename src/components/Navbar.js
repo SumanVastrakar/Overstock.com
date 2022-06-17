@@ -404,17 +404,7 @@ onClick={() => {
               <p> {`${statusOfUser ? user[0] : "Account"}`} </p>
             </Box>
             </Link>
-            {/* <Box>
-              <Button
-                as={'a'}
-                fontSize={'25px'}
-                fontWeight={400}
-                variant={'link'}
-               >
-                <BiHeart />
-              </Button>
-              <p> List </p>
-            </Box> */}
+          
 
 <Link to= "/wishlist">
             <Box position={"relative"} p = "0 0.5 0 0">
