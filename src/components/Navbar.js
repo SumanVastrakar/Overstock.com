@@ -22,6 +22,7 @@ import {
 
 } from '@chakra-ui/react';
 import { BiUser, BiHeart } from "react-icons/bi";
+import {useState, useEffect} from "react";
 import { BsCart } from "react-icons/bs";
 
 import { BsSearch } from "react-icons/bs";
@@ -52,10 +53,42 @@ import WishList from '../Pages/CartPage/Wishlist';
 import WishlistCounter from '../Pages/CartPage/WishlistCounter';
 import { useSelector } from 'react-redux';
 
+var originalArr = [];
 export default function Navbar() {
+
+  const [product, setProduct] = useState([]);
   const { isOpen, onToggle } = useDisclosure();
   const user = useSelector(store => store.auth.user);
   const statusOfUser = useSelector(store => store.auth.status)
+
+  if (!originalArr.length) {
+    originalArr = [...product];
+  }
+
+
+  useEffect(() => {
+    async function getData() {
+      const data = await fetch(
+        `http://localhost:8080/HomeGoods`
+      ).then((d) => d.json());
+      setProduct(data);
+    }
+    getData();
+  }, []);
+  
+  if (!originalArr.length) {
+    originalArr = [...product];
+  }
+
+
+  ///logic for debouncing
+    //getting the input value
+    const gettingSelectedItem = (selectedItem) => {
+      const updatedItems = originalArr.filter((elem) => {
+        return elem.productName.toLowerCase().includes(selectedItem);
+      });
+      setProduct(updatedItems);
+    };
 
   //writing the logic for hiding and unhiding the furniture boxes
 
@@ -239,11 +272,18 @@ const unHideSalesBarBox = () => {
     document.querySelector(".hiddenSalesOfNavbar").classList.remove("hidden")
 
 }
+  //for the debouncing of the boxes
+
+  const hideDebouncingBoxBox = () => {
+    document.querySelector(".searchDebouncing").classList.add("hidden");
+  };
+  const unHideDebouncingBarBox = () => {
+    document.querySelector(".searchDebouncing").classList.remove("hidden");
+  };
 
   return (
     <Box>
 {/* //ships to the india */}
-
 
 
 
@@ -259,7 +299,12 @@ const unHideSalesBarBox = () => {
         borderBottom={1}
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
+        align={'center'}
+        
+onClick={() => {
+  hideDebouncingBoxBox();
+}}
+        >
      <Text ml={10}>
       Ships to : 
      </Text>
@@ -314,7 +359,18 @@ const unHideSalesBarBox = () => {
 
                 <InputGroup>
 
-                  <Input placeholder='Search' mt={6} bg={useColorModeValue("rgb(240,240,243)")} width="1050px" />
+{/* //================================================================================================>>>>>>>>>>>>>>>> */}
+
+                  <Input placeholder='Search' mt={6} bg={useColorModeValue("rgb(240,240,243)")}
+                   onChange={(e) => {
+                    let set = e.target.value;
+                    set = set.toLowerCase();
+                    unHideDebouncingBarBox();
+                    gettingSelectedItem(set);
+                  }}
+                  width="1050px" />
+
+{/* //================================================================================================>>>>>>>>>>>>>>>> */}
 
                   <InputRightElement mt={6} children={<BsSearch />} color={"white"} backgroundColor={"rgb(255,31,44)"} fontWeight={"900px"} borderRightRadius={"8px"} />
 
@@ -528,7 +584,31 @@ const unHideSalesBarBox = () => {
       </Box>
 
 
-
+{/* <<<<-----------------------------------------------------------------------------------------------
+                    adding debouncing------------------------------------------------>>>
+                     */}
+      <div className="searchDebouncing hidden">
+        {product.map((e) => (
+          <Link to={`/homeGoodPoducts/${e.id}`}>
+            <div className="debouncingDiv">
+              {/* //for appending img */}
+              <div>
+                <img className="debouncingimg" src={e.image} alt="" />
+              </div>
+              {/* for apprnding text */}
+              <div style={{margin : "10px"}} >
+                <h5>{e.productName}</h5>
+                <br />
+                <p  style={{margin : "-8px"}} className="debouncingPTag">{`Rating ${e.rating}`}</p>
+                <br />
+                <p  style={{margin : "-8px"}} className="debouncingPTag">{`${e.price} ₹`}</p>
+                {/* <p className="debouncingPTagpage">{e.page}</p> */}
+              </div>
+              <hr />
+            </div>
+           </Link>
+        ))}
+      </div>
     </Box>
   );
 }
