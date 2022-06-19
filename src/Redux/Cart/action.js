@@ -53,7 +53,7 @@ export const addProductCartFailure = (data) => {
 export const addProductCart = (product, token) => (dispatch) => {
 
     // console.log("product", product)
-    axios.post("http://localhost:8080/cart", {product, token :token})
+    axios.post("https://overstockbackendsuman.herokuapp.com/cart", {product, token :token})
         .then(d => dispatch(addProductCartSuccess(d.data)))
         .catch(error => addProductCartFailure(error.data))
 
@@ -86,7 +86,7 @@ export const fetchCartFailure = (payload) => {
 }
 export const fetchCart = (payload) => (dispatch) => {
     dispatch(fetchCartRequest())
-    axios.get("http://localhost:8080/cart").then(d => dispatch(fetchCartSuccess(d.data)))
+    axios.get("https://overstockbackendsuman.herokuapp.com/cart").then(d => dispatch(fetchCartSuccess(d.data)))
         .then(err => dispatch(fetchCartFailure(err.data)))
 
 }
@@ -117,11 +117,12 @@ export const addProductWishlistFailure = (data) => {
 
 export const addProductWishlist = (product, token) => (dispatch) => {
     // console.log("product", product)
-    axios.post("http://localhost:8080/wishlist",{product, token : token})
+    axios.post("https://overstockbackendsuman.herokuapp.com/wishlist",{product, token : token})
         .then(d => dispatch(addProductWishlistSuccess(d.data)))
         .catch(error => addProductWishlistFailure(error.data))
 
 }
+
 
 
 //for fetching wishlist data
@@ -151,7 +152,7 @@ export const fetchWishlistFailure = (payload) => {
 }
 export const fetchWishlist = (payload) => (dispatch) => {
     dispatch(fetchWishlistRequest())
-    axios.get("http://localhost:8080/wishlist").then(d => dispatch(fetchWishlistSuccess(d.data)))
+    axios.get("https://overstockbackendsuman.herokuapp.com/wishlist").then(d => dispatch(fetchWishlistSuccess(d.data)))
         .then(err => dispatch(fetchWishlistFailure(err.data)))
 
 }
@@ -183,7 +184,7 @@ export const delteProductCartFailure = (payload) => {
 }
 export const delteProductCart = (id) => (dispatch) => {
     dispatch(delteProductCartRequest())
-    axios.delete(`http://localhost:8080/cart/${id}`)
+    axios.delete(`https://overstockbackendsuman.herokuapp.com/cart/${id}`)
         .then(d => dispatch(delteProductCartSucess()))
         .then(() => dispatch(fetchCart()))
         .catch(error => dispatch(delteProductCartFailure(error.data)))
@@ -214,7 +215,7 @@ export const delteProductWishlistFailure = (payload) => {
 }
 export const delteProductWishlist = (id) => (dispatch) => {
     dispatch(delteProductWishlistRequest())
-    axios.delete(`http://localhost:8080/wishlist/${id}`)
+    axios.delete(`https://overstockbackendsuman.herokuapp.com/wishlist/${id}`)
         .then(d => dispatch(delteProductWishlistSucess()))
         .then(() => dispatch(fetchWishlist()))
         .catch(error => dispatch(delteProductWishlistFailure(error.data)))

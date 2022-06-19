@@ -84,7 +84,7 @@ export default function Navbar() {
   useEffect(() => {
     async function getData() {
       const data = await fetch(
-        `http://localhost:8080/HomeGoods`
+        `https://overstockbackendsuman.herokuapp.com/HomeGoods`
       ).then((d) => d.json());
       setProduct(data);
     }

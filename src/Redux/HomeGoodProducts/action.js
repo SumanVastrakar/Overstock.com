@@ -31,7 +31,7 @@ export const fetchDataFailure = (data) => {
 export const fetchData = (payload) => (dispatch) => {
 
     dispatch(fetchDataRequest())
-    axios.get("http://localhost:8080/HomeGoods", {
+    axios.get("https://overstockbackendsuman.herokuapp.com/HomeGoods", {
         params : {
             ...payload
         }
@@ -71,6 +71,6 @@ export const getSingleProductFailure = (payload) => {
 }
 
 export const getSingleProduct = (id) => (dispatch) => {
-    axios.get(`http://localhost:8080/HomeGoods/${id}`).then(d => dispatch(getSingleProductSuccess(d.data)))
+    axios.get(`https://overstockbackendsuman.herokuapp.com/HomeGoods/${id}`).then(d => dispatch(getSingleProductSuccess(d.data)))
         .catch(error => dispatch(getSingleProductFailure(error.data)))
 }
