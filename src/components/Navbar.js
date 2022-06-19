@@ -415,7 +415,7 @@ onClick={() => {
                 fontSize={'25px'}
                 fontWeight={400}
                 variant={'link'}
-                href={'#'}
+                
 
               >
 
@@ -462,7 +462,7 @@ onClick={() => {
                 <BiHeart />
               
               </Button>
-              <p> List </p>
+              <p ml="2rem"> List </p>
             </Box>
             </Link>
 

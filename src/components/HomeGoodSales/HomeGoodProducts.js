@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchData } from '../../Redux/HomeGoodProducts/action';
+import axios from "axios";
 
 import { BiUser, BiHeart } from "react-icons/bi";
 import {Link} from "react-router-dom"
@@ -13,6 +14,10 @@ import {  Stack, Heading, Box,
   Text,
   IconButton ,
 Button,
+
+
+Select ,
+
   Image, } from '@chakra-ui/react';
 import HomeGoodProductsFilter from './HomeGoodProductsFilter';
 import { useSearchParams } from 'react-router-dom';
@@ -22,8 +27,9 @@ import { Rating } from './HomeGoodProductItem';
 
 export default function HomeGoodProducts() {
 
+  const [sortValue, setSortValue] = useState("")
   const [searchParams] = useSearchParams();
-  const products = useSelector(store => store.homeGoodProducts.products);
+  let products = useSelector(store => store.homeGoodProducts.products);
 
 
 
@@ -39,6 +45,53 @@ export default function HomeGoodProducts() {
     }
 
   },[dispatch, products?.length, searchParams])
+
+    //handlesort 
+
+    
+    const handleSort =  (e) => {
+      let value = e.target.value;
+      console.log(value)
+      // setSortValue(value)
+      // return await axios.get(`http://localhost:8080/HomeGoods?_sort=price&_order=${value}`)
+      //   .then((response) => {
+      //     console.log(response.data)
+      //     if(categoryValues){
+        
+          // dispatch(fetchData(response.data))
+  
+        // })
+        // .catch((error) => console.log(error))
+      //   if(categoryValues){
+      //     setSearchParams({category : categoryValues}, {replace : true})
+      //     let params = {
+      //         category : searchParams.getAll("category")
+      //     }
+      //     dispatch(fetchData(params))
+      // }
+// console.log(value)
+      if( value === "asc"){
+        products = products.sort(function (a, b) { return  a.price - b.price})
+        console.log(products)
+        products.map((product => (
+          
+          <ProductSimple key= {product.id} image = {product.image} title  = {product.productName} price ={product.price} rating ={product.rating} elem ={product} id={product.id} />
+                
+                      )))
+                      console.log("fhhfuihdfudhu")
+
+      }else {
+        products = products.sort(function (a, b) { return  b.price - a.price})
+        console.log(products)
+        products.map((product => (
+         
+
+          <ProductSimple key= {product.id} image = {product.image} title  = {product.productName} price ={product.price} rating ={product.rating} elem ={product} id={product.id} />
+                
+                      )))
+      }
+    };
+
   return (
    <Box>
     <Heading as ="h1" p = "2rem 4rem">Home Goods Sale</Heading>
@@ -48,6 +101,32 @@ export default function HomeGoodProducts() {
       </Box>
       <Box>
         {/* <Heading as = "h1"> Home Good Products</Heading> */}
+{/* ///adding button for sorting */}
+{/* 
+<Menu closeOnSelect={false}>
+  <MenuButton as={Button} ml="83%" colorScheme='blue'>
+    Sort By Price
+  </MenuButton>
+  <MenuList   zIndex="2000"  minWidth='240px'>
+    <select defaultValue='asc' onChange={handleSort} value={sortValue} title='Order' >
+      <option value='asc'>Ascending</option>
+      <option value='desc'>Descending</option>
+    </select>
+    <MenuDivider />
+  
+  </MenuList>
+</Menu> */}
+
+{/* <Select width='200px'  onChange={handleSort} value={sortValue}  ml="80%" >
+  <option value="Sort By">Sort By </option>
+  <option value='asc'>Ascending</option>
+  <option value='desc'>Descending </option>
+
+</Select> */}
+
+
+
+
         <Flex flexWrap="wrap" justifyContent = "space-around">
           {
             products.map((product => (
@@ -68,6 +147,7 @@ export default function HomeGoodProducts() {
   )
 }
 function ProductSimple({image, price, title, rating, elem, id}) {
+  console.log(image, price, title, rating, elem, id)
   const user = useSelector(store => store.auth.user)
   const dispatch = useDispatch();
 let heart = false;
@@ -128,7 +208,7 @@ dispatch(addProductWishlist(elem, token))
               filter: 'blur(20px)',
             },
           }}>
-              <Link to ={`/datalightsproducts/${id}`}>
+              <Link to ={`/homeGoodPoducts/${id}`}>
           <Image
             rounded={'lg'}
             height={230}

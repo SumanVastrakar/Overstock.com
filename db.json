@@ -765,29 +765,15 @@
   "wishlist": [
     {
       "product": {
-        "id": 46,
-        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/fc1366553c60514ab04d1e0b661405d9a7125927/Clarisse-24-Inch-Chrome-Polished-Finish-Ceiling-Lighted-Chandelier-Modern-Contemporary-Style-9-Light.jpg?imwidth=480&impolicy=medium",
-        "price": 23085,
-        "productName": "Clarisse Chrome Polished Finish Ceiling Metal Chandeliers",
-        "rating": 4.5,
-        "category": "Chandeliers",
-        "material": "Metal"
+        "id": 6,
+        "productName": "Painted Flowers Line Drawing Framed Giclee Texturized Art - Multi-Color",
+        "price": 2744.1,
+        "rating": 3,
+        "image": "https://ak1.ostkcdn.com/images/products/16304883/Painted-Flowers-Line-Drawing-Framed-Giclee-Texturized-Art-2ad21ca5-91a7-48d6-88b7-1e5b4d0595b4_600.jpg?imwidth=480&impolicy=medium",
+        "category": "painting"
       },
-      "token": "fcdc7b4207660a1372d0cd5491ad856e",
-      "id": 5
-    },
-    {
-      "product": {
-        "id": 58,
-        "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/d34a81aea7555725b80ad070dc0f0fe829a4ef79/Braided-1-8ct-TDW-Diamond-Ring-in-Sterling-Silver-by-Miadora.jpg?imwidth=480&impolicy=medium",
-        "price": 8878,
-        "productName": "Braided 1/8ct TDW Diamond Ring in Sterling Silver by Miadora",
-        "rating": 3.1,
-        "category": "Rings",
-        "material": "Vintage"
-      },
-      "token": "fcdc7b4207660a1372d0cd5491ad856e",
-      "id": 6
+      "token": "1533c67e5e70ae7439a9aa993d6a3393",
+      "id": 2
     },
     {
       "product": {
@@ -799,8 +785,8 @@
         "category": "Rings",
         "material": "Bands"
       },
-      "token": "fcdc7b4207660a1372d0cd5491ad856e",
-      "id": 7
+      "token": "1533c67e5e70ae7439a9aa993d6a3393",
+      "id": 4
     }
   ]
 }

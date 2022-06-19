@@ -31,12 +31,19 @@ export default function Cart() {
     console.log("newCart",newCart);
 
 
+
     let cart = [];
     for( let i = 0; i < newCart.length; i++){
  
       if(newCart[i].token === user[1]){
         cart.push(newCart[i])
+      
       }
+     
+    }
+
+    for( let i = 0; i < cart.length; i++){
+      totalPrice += cart[i].product.price
     }
 
     console.log("cart page seperate of each user", cart)
@@ -71,8 +78,9 @@ export default function Cart() {
 
  function CardsOfDetailsOfCart({name, image, price, category, id, elem}) {
     const [count, setCount] = useState(1)
-    totalPrice += count * price
-   total = totalPrice.toFixed(2);
+    // totalPrice +=     price
+
+ 
    const dispatch = useDispatch();
 
    const removeCartItemHandler = (id) => {
@@ -80,16 +88,17 @@ export default function Cart() {
    dispatch(delteProductCart(id))
    }
 
-    const incrementHandle = () => {
+    const incrementHandle = (price) => {
         setCount(count + 1)
-        totalPrice += count * price
+        totalPrice +=  price
+       Pricing()
 
     }
-    const decrementHandle = () => {
+    const decrementHandle = (price) => {
         if(count > 0){
 
             setCount(count - 1)
-            totalPrice += count * price
+            totalPrice -=  price
         }
     }
 
@@ -160,7 +169,7 @@ export default function Cart() {
                 _focus={{
                   bg: 'blue.500',
                 }}
-                onClick={incrementHandle}
+                onClick={() => incrementHandle(price)}
                 >
                 +1
               </Button>
@@ -196,11 +205,27 @@ export default function Cart() {
   ///for total price of the product
 
    function Pricing() {
-    const cart = useSelector(store => store.cart.cart);
+    // const cart = useSelector(store => store.cart.cart);
+   total = totalPrice.toFixed(2);
+
+    const newCart = useSelector(store => store.cart.cart);
+    console.log("newCart",newCart);
+
+    const user = useSelector(store => store.auth.user)
+    let cart = [];
+    for( let i = 0; i < newCart.length; i++){
+ 
+      if(newCart[i].token === user[1]){
+        cart.push(newCart[i])
+      }
+    }
+
+
+
     const dispatch = useDispatch();
-    const emptyCartHandler = (cart) => {
+    const emptyCartHandler = (newCart) => {
         console.log("empty cart",cart)
-dispatch(emptyCart(cart))
+dispatch(emptyCart(newCart))
     }
     return (
       <Center py={6}>
@@ -228,7 +253,7 @@ dispatch(emptyCart(cart))
             </Text>
             <Stack direction={'row'} align={'center'} justify={'center'}>
               <Text fontSize={'3xl'}>₹</Text>
-              <Text fontSize={'6xl'} fontWeight={800}>
+              <Text fontSize={'3xl'} fontWeight={800}>
               {total}
               </Text>
             

@@ -22,7 +22,8 @@ export default function AllRoutes() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/homeGoodPoducts" element={<PrivateRoutes><HomeGoodProducts/></PrivateRoutes>}/>
-        <Route path="/homeGoodPoducts/:id" element={<PrivateRoutes><HomeGoodProductItem/></PrivateRoutes>}/>
+        <Route path="/homeGoodPoducts/:id" element={<HomeGoodProductItem/>}/>
+        {/* <Route path="/homeGoodPoducts" element={<HomeGoodProducts/>}/> */}
         <Route path="/cart" element={<PrivateRoutes><Cart/></PrivateRoutes>}/>
         <Route path="/wishlist" element={<PrivateRoutes><WishList/></PrivateRoutes>}/>
         <Route path="/checkout" element={<Checkout/>}/>
