@@ -71,13 +71,13 @@ import {
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
-                          <FormLabel>Last Name*</FormLabel>
+                          <FormLabel>Last Name</FormLabel>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement
                               pointerEvents="none"
                               children={<BsPerson color="gray.800" />}
                             />
-                            <Input type="number" width = "400px" />
+                            <Input type="numtextber" width = "400px" />
                           </InputGroup>
                         </FormControl>
                     
